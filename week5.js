@@ -1,73 +1,75 @@
-class Dancer {
-    constructor(name, position) {
-        this.name = name;
-        this.position = position;
-    }
-}
-
-describe() {
-    return ${this.name} plays ${this.position}.;
-}
-
-class Happy {
-    constructor(name){
-        this.name = name;
-        this.dancers = []
-    }
-    addDancer(dancer) {
-        if(dancer instanceof Dancer) {
-            this.dancers.push(dancer);
-        } else {
-            throw new Error("You can only add an instance of Dancer. Argument is not a dancer: ${dancer}")
-        }
-    }
-    
-    describe() {
-        return "${this.name} has ${this.dancers.length} dancers."; 
-    }
-}
+import drink from 'C:/Users/14024/OneDrive/Week5/drink.js';
 
 class Menu {
+    
     constructor() {
-        this.teams = [];
-        this.selectedTeam = null;
+    }
+    constructor(name) {
+        this.name = name;
+
+        this.drinkList = [];
+        
+        drinkList.push(drink(name));
+    }
+// creating the drink
+    addDrink(drink) {
+
+        this.drinkList.push(drink)
+    }
+// removing the drinks
+    removeDrink(drink) {
+
+        this.drinkName = drink.getName()
+        this.drinkIndex = -1
+
+        for(let k = 0; k < this.drinkList.length; k++); {
+            curDrink = this.drinkList[k].getName();
+            if (curDrink = this.drinkName); {
+                this.drinkIndex = k;
+            }
+        }
+    
+    
+        if(this.drinkIndex = -1) {
+            print("Drink was not apart of the list, no need to remove.") 
+
+        } else {
+            this.drinkList.splice(this.drinkIndex, 1);
+            print("Removed" + this.drink + "from the menu")
+        }
     }
 
-    start() {
-        let selection = this.showMainMenuOptions();
-        while (selection != 0) {
-            switch (selection) {
-                case '1':
-                this.createTeam();
-                    break;
-                case '2':
-                    this.viewTeam();
-                    break;
-                case '3':
-                    this.deleteTeam();
-                    break;
-                case '4':
-                    this.displayTeams();
-                    break;        
-                default:
-                    selection = 0;                
+// viewing the drinks
+    viewDrinks() {
+
+        this.retString = "The drinks we have available are"
+
+        for (let j = 0; j < this.drinkList.length; j++) {
+            curDrink = this.drinkList[j];
+            curIngredients = curDrinks.getIngredients()
+
+            if (curIngredients == "") {
+
+                if (j != (this.drinksList.length-1)) {
+
+                this.retString += "The" + curDrink.getName() + ","
+                }
+                else {
+                    this.retString += "The" + curDrink.getName() + "," }
             }
-            selection = this.showMainMenuOptions();
+            else {
+            
+                if (j != (this.drinksList.length-1)) {
+
+                this.retString += "The" + curDrink.getName() + ", which has the ingredients \n" + curDrink.getIngredients + ", \n"
+                }
+                else {
+                    this.retString += "The" + curDrink.getName() + ", which has the ingredients \n" + curDrink.getIngredients + ". \n"
+
+                }
+            }
         }
 
-        alert('No thanks');
-     }
-
-     showMainMenuOptions() {
-        return prompt('
-        0. exit
-        1. create new team 
-        2. view team 
-        3. delete team
-        4. display all teams
-        ')
-     }
-
-     
-    }
+    };
+}
 
