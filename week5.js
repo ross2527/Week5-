@@ -1,20 +1,10 @@
-import drink from 'C:/Users/14024/OneDrive/Week5/drink.js';
-
 class Menu {
     
+
     constructor() {
-    }
-    constructor(name) {
-        this.name = name;
 
         this.drinkList = [];
         
-        drinkList.push(drink(name));
-    }
-// creating the drink
-    addDrink(drink) {
-
-        this.drinkList.push(drink)
     }
 // removing the drinks
     removeDrink(drink) {
@@ -36,6 +26,20 @@ class Menu {
         } else {
             this.drinkList.splice(this.drinkIndex, 1);
             print("Removed" + this.drink + "from the menu")
+        }
+    }
+
+    start() {
+        let newPick = null
+        while(newPick !== "QUIT") {
+            newPick = prompt("Whatcha want? Options: ADD NEW DRINK, DELETE THE DRINK, QUIT")
+            if(newPick === "MAKE NEW DRINK") {
+                this.createDrink()
+            }
+            else if(newPick === "DELETE THE DRINK") {
+                drinkToRemove = prompt("WHAT DRINK DO YOU WANT TO DELETE?")
+                this.removeDrink(drinkToRemove)
+            }
         }
     }
 
@@ -71,5 +75,56 @@ class Menu {
         }
 
     };
+    createMenu() {
+        const name =  prompt("What is the drinks name?")
+        
+        const ingredients = prompt("What are the drink ingredients? Leave blank if none")
+
+        if (ingredients === "") {
+
+            const newDrink = drink(name) 
+            
+        }
+        else{
+            const newDrink = drink(name, ingredients) 
+        }
+        this.drinkList.push(newDrink)
+    }
+};
+
+class Drink {
+
+    constructor(name) {
+        this.name = name
+    }
+
+    constructor(name, ingredients) {
+        this.name = name
+        this.ingredients = ingredients
+    }
+
+    getName() {
+        return this.name
+    }
+
+    getIngredients() {
+
+        if(this.ingredients.length == 0) {
+            print("No ingredients included.")
+            return ""
+        }
+
+        this.retString = this.name + "has the ingredients:"
+
+
+        for(let i = 0; i < this.ingredients.length; i++)
+
+            this.reString += this.ingredients[i]
+
+    
+        return this.retString;
+    }
 }
 
+const menu = new Menu()
+menu.start()

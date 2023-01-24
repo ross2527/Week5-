@@ -1,5 +1,4 @@
-
-class Drink {
+export class Drink {
 
     constructor(name) {
         this.name = name
