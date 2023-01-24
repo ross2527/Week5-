@@ -94,10 +94,6 @@ class Menu {
 
 class Drink {
 
-    constructor(name) {
-        this.name = name
-    }
-
     constructor(name, ingredients) {
         this.name = name
         this.ingredients = ingredients
